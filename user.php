@@ -31,7 +31,7 @@ class User
 
         $result =$this->conn->query($sql);
 
-        if(!$result->num_rows > 0){
+        if($result->num_rows > 0){
            if($result->num_rows == 0){
             return false;
            }
@@ -44,7 +44,7 @@ class User
         $sql = "SELECT * FROM $this->table";
         $result = $this ->conn->query($sql);
 
-        if ($result->num-rows > 0){
+        if ($result->num_rows > 0){
             return $result;
         }else{
             return null;
@@ -58,6 +58,17 @@ class User
         return $result;
     }
   
+public function ambilUserDariId($id){
+    $sql = "SELECT * FROM $this->table WHERE id = ". $id;
+    $result = $this->conn->query($sql);
+    return $result->fetch_assoc();
+}
 
+public function update($id,$username, $email, $asal, $password){
+    $sql = "UPDATE $this->table SET
+    username='".$username."', email='".$email."', asal='".$asal."',
+    password='".$password."' WHERE id=". $id;
+    $this->conn->query($sql);
+}
    
 }

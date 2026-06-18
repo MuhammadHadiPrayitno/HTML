@@ -3,7 +3,7 @@ include '../user.php';
 include '../database.php';
 
 $db = new Database();
-$conn = $db->connect();
+$conn = $db->koneksi();
 $user = new User($conn);
 
 $result = $user->getAllUsers();

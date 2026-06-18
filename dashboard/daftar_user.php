@@ -6,7 +6,7 @@
         $conn = $db->koneksi();
         $user = new User($conn);
 
-        $result = $user->getAllUsers():
+        $result = $user->getAllUsers();
         $daftar_user = $result->fetch_all(MYSQLI_ASSOC);
         ?>
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
@@ -35,7 +35,8 @@
                   <td><?php echo $user ['email']; ?></td>
                   <td><?php echo $user ['asal']; ?></td>
                   <td>
-                    <a href= "delete_user.php?id=<?php echo $user ['id']; ?>">delete</a>|edit
+                    <a href= "delete_user.php?id=<?php echo $user ['id']; ?>">delete</a>|
+                    <a href= "index.php?halaman=edit_user_form.php&id=<?php echo $user['id']; ?>">edit</a>
                 </tr>
               <?php
               }
