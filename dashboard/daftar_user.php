@@ -12,6 +12,15 @@
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
           <h1 class="mt-4">Daftar User</h1>
           <hr />
+          
+          <?php if (isset($_SESSION['login_count'])): ?>
+      <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+        <strong>Halo, <?php echo htmlspecialchars($_SESSION['username']); ?>!</strong> 
+        Anda telah berhasil login sebanyak <strong><?php echo $_SESSION['login_count']; ?></strong> kali ke dalam sistem.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    <?php endif; ?>
+          
           <a href= "index.php?halaman=tambah_user_form.php" class="btn btn-primary mb-3">Tambah User</a>
           <div class="table-responsive small">
             <table class="table table-striped table-sm">
@@ -37,6 +46,7 @@
                   <td>
                     <a href= "delete_user.php?id=<?php echo $user ['id']; ?>">delete</a>|
                     <a href= "index.php?halaman=edit_user_form.php&id=<?php echo $user['id']; ?>">edit</a>
+                  </td>
                 </tr>
               <?php
               }

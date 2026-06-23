@@ -385,6 +385,24 @@ $halaman = $_GET['halaman'] ?? 'daftar_user.php';
                       <use xlink:href="#puzzle"></use>
                     </svg>
                     Daftar User
+                    <div class="container-fluid">
+                    <h1 class="mt-4">Daftar User</h1>
+                    
+                    
+                    <?php if (isset($_SESSION['login_count'])): ?>
+                      <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+                        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+                        Halo, <strong><?php echo $_SESSION['username']; ?></strong>! Anda telah berhasil login sebanyak <strong><?php echo $_SESSION['login_count']; ?></strong> kali ke dalam sistem.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                      </div>
+                    <?php endif; ?>
+                    
+                    <div class="mb-3 mt-3">
+                      <a href="tambah.php" class="btn btn-primary">Tambah User</a>
+                    </div>
+                    
+                    
+                  </div>
                   </a>
                 </li>
               </ul>
